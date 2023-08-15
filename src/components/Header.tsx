@@ -1,6 +1,6 @@
 import { Box, Button, Center, Flex, Spacer, Text } from '@chakra-ui/react'
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { changeLocalStorage } from '../services/storage'
 import { AppContext } from './AppContext'
 
@@ -29,6 +29,16 @@ export const Header  = () => {
               onClick={() => logout()}
             >
               Sair
+            </Button>
+            <Button>
+              {window.location.pathname === "/infoconta" ?  (
+              <Link to="/conta/1">
+                Conta
+              </Link>
+              ) : (
+              <Link to="/infoconta">
+                Info
+              </Link>)}
             </Button>
           </>
         )

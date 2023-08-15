@@ -2,7 +2,6 @@ import { createContext, useEffect, useState } from "react"
 import { getAllLocalStorage } from "../services/storage"
 
 interface IAppContext {
-    user: string,
     isLoggedIn: boolean,
     setIsLoggedIn: (isLoggedIn: boolean) => void
 }
@@ -20,11 +19,9 @@ export const AppContextProvider = ({ children }: any) => {
         setIsLoggedIn(login)
       }
     }, [])
-
-    const user = 'nathally'
   
     return (
-      <AppContext.Provider value={{ user, isLoggedIn, setIsLoggedIn }}>
+      <AppContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         { children }
       </AppContext.Provider>
     )
